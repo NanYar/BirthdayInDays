@@ -27,8 +27,33 @@ class ViewController: UIViewController {
 
     @IBAction func daysButtonPressed(sender: UIButton) {
         
-        messageLabel.text = "I am xyz days old"
+        var dateComponents = NSDateComponents()
+        
+        dateComponents.day = dayTextField.text.toInt()!
+        dateComponents.month = monthTextField.text.toInt()!
+        dateComponents.year = yearTextField.text.toInt()!        
+        
+        var calendar = NSCalendar(identifier: NSGregorianCalendar) // = NSCalender
+        var birthDate = calendar.dateFromComponents(dateComponents) // = NSDate?
+        var currentDate = NSDate.date() // = NSDate! in UTC
+        var durationDateComponents = calendar.components(NSCalendarUnit.CalendarUnitDay, fromDate: birthDate!, toDate: currentDate, options: nil)
+        var numberOfDaysAlive = durationDateComponents.day
+        
+        // Format day string
+        var numberFormatter = NSNumberFormatter()
+        numberFormatter.usesGroupingSeparator = true
+        var numberOfDaysAliveFormatted = numberFormatter.stringFromNumber(numberOfDaysAlive)
+        
+//        println(birthDate)
+//        println(currentDate)
+//        println(numberOfDaysAlive)
+//        println(numberOfDaysAliveFormatted)
+        
+        messageLabel.text = "Days alive: \(numberOfDaysAliveFormatted)"
         messageLabel.hidden = false
+        dayTextField.text = ""
+        monthTextField.text = ""
+        yearTextField.text = ""
         dayTextField.resignFirstResponder()
         monthTextField.resignFirstResponder()
         yearTextField.resignFirstResponder()
