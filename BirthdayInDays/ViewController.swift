@@ -8,55 +8,69 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController
+{
     @IBOutlet weak var dayTextField: UITextField!
     @IBOutlet weak var monthTextField: UITextField!
     @IBOutlet weak var yearTextField: UITextField!
-    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var resultMessageLabel: UILabel!
     
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
     }
 
 
-    @IBAction func daysButtonPressed(sender: UIButton) {
+    @IBAction func daysButtonPressed(sender: UIButton)
+    {
+        let dateComponents = NSDateComponents()
+        let optionalDayInt = dayTextField.text.toInt()
+        let optionalMonthInt = monthTextField.text.toInt()
+        let optionalYearInt = yearTextField.text.toInt()
         
-        var dateComponents = NSDateComponents()
         
-        dateComponents.day = dayTextField.text.toInt()!
-        dateComponents.month = monthTextField.text.toInt()!
-        dateComponents.year = yearTextField.text.toInt()!        
-        
-        var calendar = NSCalendar(identifier: NSGregorianCalendar) // = NSCalender
-        var birthDate = calendar.dateFromComponents(dateComponents) // = NSDate?
-        var currentDate = NSDate.date() // = NSDate! in UTC
-        var durationDateComponents = calendar.components(NSCalendarUnit.CalendarUnitDay, fromDate: birthDate!, toDate: currentDate, options: nil)
-        var numberOfDaysAlive = durationDateComponents.day
-        
-        // Format day string
-        var numberFormatter = NSNumberFormatter()
-        numberFormatter.usesGroupingSeparator = true
-        var numberOfDaysAliveFormatted = numberFormatter.stringFromNumber(numberOfDaysAlive)
-        
-//        println(birthDate)
-//        println(currentDate)
-//        println(numberOfDaysAlive)
-//        println(numberOfDaysAliveFormatted)
-        
-        messageLabel.text = "Days alive: \(numberOfDaysAliveFormatted)"
-        messageLabel.hidden = false
-        dayTextField.text = ""
-        monthTextField.text = ""
-        yearTextField.text = ""
-        dayTextField.resignFirstResponder()
-        monthTextField.resignFirstResponder()
-        yearTextField.resignFirstResponder()
+        if optionalDayInt != nil && optionalMonthInt != nil && optionalYearInt != nil
+        {
+            dateComponents.day = optionalDayInt!
+            dateComponents.month = optionalMonthInt!
+            dateComponents.year = optionalYearInt!
+            
+            let calendar = NSCalendar(identifier: NSGregorianCalendar) // = NSCalender
+            let birthDate = calendar.dateFromComponents(dateComponents) // = NSDate?
+            let currentDate = NSDate.date() // = NSDate! in UTC
+            let durationDateComponents = calendar.components(NSCalendarUnit.CalendarUnitDay, fromDate: birthDate!, toDate: currentDate, options: nil)
+            let numberOfDaysAlive = durationDateComponents.day
+            
+            // Format day string
+            let numberFormatter = NSNumberFormatter()
+            numberFormatter.usesGroupingSeparator = true
+            let numberOfDaysAliveFormatted = numberFormatter.stringFromNumber(numberOfDaysAlive)
+            
+            //        println(birthDate)
+            //        println(currentDate)
+            //        println(numberOfDaysAlive)
+            //        println(numberOfDaysAliveFormatted)
+            
+            resultMessageLabel.text = "Days alive: \(numberOfDaysAliveFormatted)"
+            resultMessageLabel.hidden = false
+            dayTextField.text = ""
+            monthTextField.text = ""
+            yearTextField.text = ""
+            dayTextField.resignFirstResponder()
+            monthTextField.resignFirstResponder()
+            yearTextField.resignFirstResponder()
+
+        }
+        else
+        {
+            resultMessageLabel.text = ""
+        }
         
     }
     
