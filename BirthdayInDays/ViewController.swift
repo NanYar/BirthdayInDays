@@ -35,12 +35,14 @@ class ViewController: UIViewController
         let optionalYearInt = yearTextField.text.toInt()
         
         
+        // Check before unwrap
         if optionalDayInt != nil && optionalMonthInt != nil && optionalYearInt != nil
         {
             dateComponents.day = optionalDayInt!
             dateComponents.month = optionalMonthInt!
             dateComponents.year = optionalYearInt!
             
+            // Check valid date
             if checkDayMonthInput(dateComponents.day, dateComponents.month)
             {
                 let calendar = NSCalendar(identifier: NSGregorianCalendar) // = NSCalender
@@ -49,6 +51,7 @@ class ViewController: UIViewController
                 let durationDateComponents = calendar.components(NSCalendarUnit.CalendarUnitDay, fromDate: birthDate!, toDate: currentDate, options: nil)
                 let numberOfDaysAlive = durationDateComponents.day
                 
+                // Check date is in the past
                 if numberOfDaysAlive >= 0
                 {
                     // Format day string
