@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1753319319EAA98A00092E3E /* CheckDateFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753319219EAA98A00092E3E /* CheckDateFunction.swift */; };
 		17AA586F19E8875B00BF2AA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA586E19E8875B00BF2AA4 /* AppDelegate.swift */; };
 		17AA587119E8875B00BF2AA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AA587019E8875B00BF2AA4 /* ViewController.swift */; };
 		17AA587419E8875B00BF2AA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17AA587219E8875B00BF2AA4 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1753319219EAA98A00092E3E /* CheckDateFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckDateFunction.swift; sourceTree = "<group>"; };
 		17AA586919E8875B00BF2AA4 /* BirthdayInDays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayInDays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17AA586D19E8875B00BF2AA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17AA586E19E8875B00BF2AA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				17AA586E19E8875B00BF2AA4 /* AppDelegate.swift */,
 				17AA587019E8875B00BF2AA4 /* ViewController.swift */,
+				1753319219EAA98A00092E3E /* CheckDateFunction.swift */,
 				17AA587219E8875B00BF2AA4 /* Main.storyboard */,
 				17AA587519E8875B00BF2AA4 /* Images.xcassets */,
 				17AA587719E8875B00BF2AA4 /* LaunchScreen.xib */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1753319319EAA98A00092E3E /* CheckDateFunction.swift in Sources */,
 				17AA587119E8875B00BF2AA4 /* ViewController.swift in Sources */,
 				17AA586F19E8875B00BF2AA4 /* AppDelegate.swift in Sources */,
 			);
@@ -405,6 +409,7 @@
 				17AA588A19E8875B00BF2AA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17AA588B19E8875B00BF2AA4 /* Build configuration list for PBXNativeTarget "BirthdayInDaysTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +418,7 @@
 				17AA588D19E8875B00BF2AA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
